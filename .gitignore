@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# builds
+dist/
+build/
+.next/
+out/
+coverage/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+
+# system
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# typescript
+*.tsbuildinfo
