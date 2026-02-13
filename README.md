@@ -1,30 +1,30 @@
-# Cadence Temporal Assessment
+# Cadence Workflow Assessment
 
 ## Temporal Config (Replace with your values)
 
-TEMPORAL_ADDRESS=localhost:7233
-TEMPORAL_NAMESPACE=default
-TEMPORAL_TASK_QUEUE=cadence-task-queue
+`TEMPORAL_ADDRESS=localhost:7233`
+`TEMPORAL_NAMESPACE=default`
+`TEMPORAL_TASK_QUEUE=cadence-task-queue`
 
 ---
 
 ## Install
 
-npm install
+```npm install```
 
 ---
 
 ## Run All
 
-npm run dev
+```npm run dev```
 
 ---
 
 ## Run Individually
 
-npm run dev:web
-npm run dev:api
-npm run dev:worker
+```npm run dev:web```
+```npm run dev:api```
+```npm run dev:worker```
 
 ---
 
