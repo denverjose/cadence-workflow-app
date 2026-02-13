@@ -33,6 +33,7 @@ export default function Home() {
 
   const [enrollmentId, setEnrollmentId] = useState<string>("");
   const [state, setState] = useState<WorkflowState | null>(null);
+  const [updateStatus, setUpdateStatus] = useState<string | null>(null);
 
   async function createCadence() {
     const data: Cadence = JSON.parse(json);
@@ -64,12 +65,27 @@ export default function Home() {
   }
 
   async function updateCadence() {
-    const data: Cadence = JSON.parse(json);
-    await fetch(`${BASE_URL}/enrollments/${enrollmentId}/update-cadence`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ steps: data.steps as CadenceStep[] }),
-    });
+    try {
+      const data: Cadence = JSON.parse(json);
+
+      const res = await fetch(
+        `${BASE_URL}/enrollments/${enrollmentId}/update-cadence`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ steps: data.steps as CadenceStep[] }),
+        },
+      );
+
+      if (!res.ok) {
+        setUpdateStatus(`${res.statusText}`);
+        return;
+      }
+
+      setUpdateStatus("Cadence updated successfully");
+    } catch (err) {
+      setUpdateStatus("Invalid JSON format");
+    }
   }
 
   return (
@@ -93,6 +109,10 @@ export default function Home() {
           ? JSON.stringify(state, null, 2)
           : "Workflow state not fetched yet"}
       </pre>
+
+      {updateStatus && (
+        <pre>Update Status: {JSON.stringify(updateStatus, null, 2)}</pre>
+      )}
     </div>
   );
 }

@@ -6,25 +6,27 @@
 `TEMPORAL_NAMESPACE=default`
 `TEMPORAL_TASK_QUEUE=cadence-task-queue`
 
+Make sure you have Temporal installed and run `temporal server start-dev` before starting the application.
+
 ---
 
 ## Install
 
-```npm install```
+`npm install`
 
 ---
 
 ## Run All
 
-```npm run dev```
+`npm run dev`
 
 ---
 
 ## Run Individually
 
-```npm run dev:web```
-```npm run dev:api```
-```npm run dev:worker```
+`npm run dev:web`
+`npm run dev:api`
+`npm run dev:worker`
 
 ---
 

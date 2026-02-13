@@ -30,7 +30,6 @@ export async function cadenceWorkflow(
     if (steps.length <= currentStepIndex) {
       status = "COMPLETED";
     }
-    console.log("Cadence updated via signal, stepsVersion:", stepsVersion);
   });
 
   setHandler(getStateQuery, () => ({
@@ -52,7 +51,6 @@ export async function cadenceWorkflow(
     }
 
     if (step.type === "WAIT") {
-      console.log(`Waiting for ${step.seconds} seconds...`);
       await sleep(step.seconds! * 1000);
     }
 
@@ -60,5 +58,4 @@ export async function cadenceWorkflow(
   }
 
   status = "COMPLETED";
-  console.log("Workflow completed");
 }
