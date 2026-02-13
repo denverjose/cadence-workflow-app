@@ -33,10 +33,13 @@ Make sure you have Temporal installed and run `temporal server start-dev` before
 ## Example API Calls
 
 Create Cadence:
-POST http://localhost:3001/cadences
+`POST http://localhost:3001/cadences`
 
 Enroll Contact:
-POST http://localhost:3001/enrollments
+`POST http://localhost:3001/enrollments`
+
+Get Workflow Status: 
+`GET http://localhost:3001/enrollments/:id`
 
 Update Running Workflow:
-POST http://localhost:3001/enrollments/:id/update-cadence
+`POST http://localhost:3001/enrollments/:id/update-cadence`
